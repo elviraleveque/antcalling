@@ -1,5 +1,6 @@
 import SwiftUI
 import PlaygroundSupport
+import AVFoundation
 
 struct scene1: View {
     @State var turtlePositionX: CGFloat = -414 - 200/2
@@ -11,6 +12,19 @@ struct scene1: View {
     var turtleWalking = ["turtle_run1.png", "turtle_run2.png"]
     @State var turtleImage = "turtle_run1.png"
     @State var theEnd: Double = 0
+    
+    @State var audioPlayer: AVAudioPlayer?
+
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -39,6 +53,7 @@ struct scene1: View {
         .frame(width: 414, height: 896)
         .onAppear{turtlePositionY = -896/2 - 150
             theEnd=1
+            playSound(sound: "sand", type: "wav")
         }
     }
     

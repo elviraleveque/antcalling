@@ -64,6 +64,8 @@ struct TurtleRun: View {
                         TopMidScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -76,6 +78,8 @@ struct TurtleRun: View {
                         TopRightScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -88,6 +92,8 @@ struct TurtleRun: View {
                         MiddleLeftScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -100,6 +106,8 @@ struct TurtleRun: View {
                         MiddleMidScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -112,6 +120,8 @@ struct TurtleRun: View {
                         MiddleRightScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -124,6 +134,8 @@ struct TurtleRun: View {
                         BottomLeftScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }
@@ -136,6 +148,8 @@ struct TurtleRun: View {
                         BottomRightScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
+
 
                         
                     }

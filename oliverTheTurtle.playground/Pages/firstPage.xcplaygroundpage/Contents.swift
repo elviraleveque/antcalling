@@ -1,7 +1,7 @@
 import SwiftUI
 import PlaygroundSupport
 import Darwin
-
+import AVFoundation
 
 struct scene1: View {
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
@@ -19,6 +19,22 @@ struct scene1: View {
         "Now That i found a place for you, I can leave in peace. "
     ]
     var turtleWalking = ["turtle_mama.png", "turtle_mama_walk.png"]
+    
+    @State var audioPlayer: AVAudioPlayer?
+
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
+    }
+    
+    
+  
     
     var body: some View {
         ZStack {
@@ -77,7 +93,10 @@ struct scene1: View {
         }
         .frame(width: 414, height: 896)
         .onAppear{
-            turtlePositionX = 414 + 200}
+            turtlePositionX = 414 + 200
+            playSound(sound: "sea", type: "mp3")
+
+        }
         
     }
 }
@@ -177,6 +196,19 @@ struct scene3: View {
     
     @State var hideButton: Double = 1
     
+    @State var audioPlayer: AVAudioPlayer?
+
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
             Image(uiImage: UIImage(named: "beach_death.png")!)
@@ -205,6 +237,7 @@ struct scene3: View {
                         if d > 1 {
                             turtleImages = "turtle_mama_dead.png"
                             hideButton = 0
+                            playSound(sound: "death", type: "wav")
                             
                         }
                     })

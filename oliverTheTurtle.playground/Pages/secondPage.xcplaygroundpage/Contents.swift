@@ -1,5 +1,6 @@
 import SwiftUI
 import PlaygroundSupport
+import AVFoundation
 
 struct scene1: View {
     
@@ -31,6 +32,19 @@ struct scene1: View {
     ]
     var turtleBorning = ["egg_1.png", "egg_2.png", "egg_3.png", "egg_4.png", "egg_4.png", "beach_first_page.png", "beach_first_page.png", "beach_first_page.png"]
     
+    @State var audioPlayer: AVAudioPlayer?
+
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
             Image(uiImage: UIImage(named: turtleBorning[d])!)
@@ -59,6 +73,9 @@ struct scene1: View {
                             d += 1
                             if d >= 5 {
                                 kidOpacity = 1
+                            } else {
+                                playSound(sound: "crack", type: "wav")
+
                             }
                             if d > 6 {
                                 hideButton = 0
