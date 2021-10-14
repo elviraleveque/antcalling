@@ -129,7 +129,7 @@ struct scene2: View {
                     
                     HStack {
                         Spacer()
-                        Button("Next >", action: {
+                        Button("Next ›", action: {
                             d += 1
                             turtleWalking = ["turtle_mama.png", "turtle_mama_walk.png"]
                             print(d)
@@ -202,7 +202,7 @@ struct scene3: View {
                         .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
                     HStack {
                         Spacer()
-                    Button("Next >", action: {
+                    Button("Next ›", action: {
                         d += 1
                         print(d)
                         if d > 1 {

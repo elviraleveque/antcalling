@@ -2,7 +2,7 @@ import SwiftUI
 import PlaygroundSupport
 
 struct scene1: View {
-
+    
     //    index for dialogues
     @State var d: Int = 0
     @State var kidOpacity: Double = 0
@@ -46,24 +46,30 @@ struct scene1: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(dialogues[d])
-                        .padding(30)
+                    Text(speaker[d])
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 2, trailing: 30))
                     
-                    Button("Next >", action: {
-                        d += 1
-                        print(d)
-                        if d >= 5 {
-                            kidOpacity = 1
-                        }
-                        if d > 6 {
-                            hideButton = 0
-
-                        }
+                    Text(dialogues[d])
+                        .font(.system(size: 20, weight: .regular ))
+                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
+                    HStack {
+                        Spacer()
+                        Button("Next ›", action: {
+                            d += 1
+                            print(d)
+                            if d >= 5 {
+                                kidOpacity = 1
+                            }
+                            if d > 6 {
+                                hideButton = 0
+                                
+                            }
+                        })
+                            .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
+                            .font(.system(size: 15, weight: .bold ))
+                            .opacity(hideButton)
                     }
-                    )
-                        .padding(.bottom, 30)
-                        .opacity(hideButton)
-                    //                    NavigationLink(destination: scene2(), label: {})
                 }
                 .foregroundColor(.black)
                 .frame(width: 395)
