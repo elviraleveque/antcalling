@@ -73,13 +73,14 @@ struct scene1: View {
                             d += 1
                             if d >= 5 {
                                 kidOpacity = 1
-                            } else {
-                                playSound(sound: "crack", type: "wav")
-
                             }
                             if d > 6 {
                                 hideButton = 0
                                 
+                            }
+                            if d <= 3{
+                                playSound(sound: "crack", type: "wav")
+
                             }
                         })
                             .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
