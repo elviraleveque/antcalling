@@ -46,8 +46,8 @@ struct scene1: View {
                 VStack {
                     Text("Turtle Mama:")
                         .font(.system(size: 20, weight: .bold))
-                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
-                    Divider()
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 2, trailing: 30))
+
                     Text(dialogues[d])
                         .font(.system(size: 20, weight: .regular ))
                         .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
@@ -62,10 +62,7 @@ struct scene1: View {
                                 
                             }
                             
-                        }
-                               
-                               
-                        )
+                        })
                             .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
                             .font(.system(size: 15, weight: .bold ))
                     }
@@ -122,20 +119,28 @@ struct scene2: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(dialogues[d])
-                        .padding(30)
+                    Text("Turtle Mama:")
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 2, trailing: 30))
                     
-                    Button("Next >", action: {
-                        d += 1
-                        turtleWalking = ["turtle_mama.png", "turtle_mama_walk.png"]
-                        print(d)
-                        if d > 0 {
-                            PlaygroundPage.current.setLiveView(scene3())
-                            
-                        }
+                    Text(dialogues[d])
+                        .font(.system(size: 20, weight: .regular ))
+                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
+                    
+                    HStack {
+                        Spacer()
+                        Button("Next >", action: {
+                            d += 1
+                            turtleWalking = ["turtle_mama.png", "turtle_mama_walk.png"]
+                            print(d)
+                            if d > 0 {
+                                PlaygroundPage.current.setLiveView(scene3())
+                                
+                            }
+                        })
+                            .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
+                            .font(.system(size: 15, weight: .bold ))
                     }
-                    )
-                        .padding(.bottom, 30)
                 }
                 .foregroundColor(.black)
                 .frame(width: 395)
@@ -161,6 +166,11 @@ struct scene3: View {
     @State var turtleImages = "turtle_mama.png"
     
     @State var d: Int = 0
+    var speacker = [
+    "",
+    "Turtle Mama",
+    ""
+    ]
     var dialogues = [
         "...",
         "Now That i found a place for you, I can leave in peace. ",
@@ -183,9 +193,15 @@ struct scene3: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(dialogues[d])
-                        .padding(30)
+                    Text(speacker[d])
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 2, trailing: 30))
                     
+                    Text(dialogues[d])
+                        .font(.system(size: 20, weight: .regular ))
+                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
+                    HStack {
+                        Spacer()
                     Button("Next >", action: {
                         d += 1
                         print(d)
@@ -194,10 +210,11 @@ struct scene3: View {
                             hideButton = 0
                             
                         }
-                    }
-                    )
+                    })
                         .opacity(hideButton)
-                        .padding(.bottom, 30)
+                        .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
+                        .font(.system(size: 15, weight: .bold ))
+                    }
                 }
                 .foregroundColor(.black)
                 .frame(width: 395)
