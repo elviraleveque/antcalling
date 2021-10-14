@@ -56,7 +56,6 @@ struct scene1: View {
                         Button("Next ›", action: {
                             turtlePositionX = 414 + 200/2
                             d += 1
-                            print(d)
                             if d > 1 {
                                 PlaygroundPage.current.setLiveView(scene2())
                                 
@@ -132,7 +131,6 @@ struct scene2: View {
                         Button("Next ›", action: {
                             d += 1
                             turtleWalking = ["turtle_mama.png", "turtle_mama_walk.png"]
-                            print(d)
                             if d > 0 {
                                 PlaygroundPage.current.setLiveView(scene3())
                                 
@@ -204,7 +202,6 @@ struct scene3: View {
                         Spacer()
                     Button("Next ›", action: {
                         d += 1
-                        print(d)
                         if d > 1 {
                             turtleImages = "turtle_mama_dead.png"
                             hideButton = 0

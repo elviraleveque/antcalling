@@ -57,7 +57,6 @@ struct scene1: View {
                         Spacer()
                         Button("Next ›", action: {
                             d += 1
-                            print(d)
                             if d >= 5 {
                                 kidOpacity = 1
                             }
