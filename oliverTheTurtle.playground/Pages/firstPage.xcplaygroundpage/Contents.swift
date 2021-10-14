@@ -1,5 +1,6 @@
 import SwiftUI
 import PlaygroundSupport
+import Darwin
 
 
 struct scene1: View {
@@ -43,20 +44,31 @@ struct scene1: View {
             VStack {
                 Spacer()
                 VStack {
+                    Text("Turtle Mama:")
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
+                    Divider()
                     Text(dialogues[d])
-                        .padding(30)
-                    
-                    Button("Next >", action: {
-                        turtlePositionX = 414 + 200/2
-                        d += 1
-                        print(d)
-                        if d > 1 {
-                            PlaygroundPage.current.setLiveView(scene2())
+                        .font(.system(size: 20, weight: .regular ))
+                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 2, trailing: 30))
+                    HStack {
+                        Spacer()
+                        Button("Next ›", action: {
+                            turtlePositionX = 414 + 200/2
+                            d += 1
+                            print(d)
+                            if d > 1 {
+                                PlaygroundPage.current.setLiveView(scene2())
+                                
+                            }
                             
                         }
+                               
+                               
+                        )
+                            .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
+                            .font(.system(size: 15, weight: .bold ))
                     }
-                    )
-                        .padding(.bottom, 30)
                 }
                 .foregroundColor(.black)
                 .frame(width: 395)
