@@ -29,10 +29,10 @@ struct scene1: View {
                                             i = i+1
                                             if i>1 {i=0}
                                         })
-            Image(uiImage: UIImage (named: turtleImage)!)
+            Image(uiImage: UIImage (named: "final_sentence.png")!)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 150)
+                .frame(width: 380)
                 .opacity(theEnd)
                 .animation(.easeOut(duration: 5.0).delay(15), value: theEnd)
         }
