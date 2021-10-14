@@ -1,5 +1,6 @@
 import SwiftUI
 import PlaygroundSupport
+import AVFoundation
 
 struct TurtleRun: View {
     @State var finalScale = 0.01
@@ -16,6 +17,20 @@ struct TurtleRun: View {
     @State var BottomRightScale = 1.00
     @State var opacityStart: Double = 1
     
+    @State var audioPlayer: AVAudioPlayer?
+
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
+    }
+
+    
     
     
     
@@ -26,20 +41,7 @@ struct TurtleRun: View {
                     .resizable()
                     .scaledToFit()
                 
-                
-//                HStack(alignment:.top){
-//                    Text("Clean the beach!")
-//                        .font(.title)
-//                        .bold()
-//                        .padding(15)
-//                        .foregroundColor(.white)
-////                        .background(Color(red:1.0, green:1.0, blue:1.0 ))
-//                        .cornerRadius(15)
-//                        .offset(x:0,y:-390)
-//
-//
-//
-//                }
+            
                 //Top-Left
                 GarbageRun()
                     .offset(x:-100,y:-250)
@@ -49,6 +51,7 @@ struct TurtleRun: View {
                         TopLeftScale=finalScale
                         garbageCounter+=1
                         opc=winCondition(counter: garbageCounter)
+                        playSound(sound: "bin", type: "mp3")
                         
                     }
                 
@@ -137,7 +140,7 @@ struct TurtleRun: View {
                         
                     }
                 VStack {
-                    Text("Tap on the garbage and clean the beach!")
+                    Text("Tap on the garbages and clean the beach!")
                         .padding(30)
                     
                     Button("Start", action: {
