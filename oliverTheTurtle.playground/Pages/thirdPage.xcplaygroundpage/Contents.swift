@@ -137,7 +137,7 @@ struct TurtleRun: View {
                         
                     }
                 VStack {
-                    Text("Tap on the garbages and clean the beach!")
+                    Text("Tap on the garbage and clean the beach!")
                         .padding(30)
                     
                     Button("Start", action: {

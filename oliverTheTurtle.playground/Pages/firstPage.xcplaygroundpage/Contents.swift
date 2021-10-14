@@ -200,6 +200,6 @@ struct scene3: View {
     }
 }
 
-PlaygroundPage.current.setLiveView(scene2())
+PlaygroundPage.current.setLiveView(scene1())
 
 //: [Next](@next)
