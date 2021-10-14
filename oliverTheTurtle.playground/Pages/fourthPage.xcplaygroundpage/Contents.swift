@@ -6,7 +6,7 @@ struct scene1: View {
     //    index for turtle walking
     @State var i: Int = 0
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-    @State var turtlePositionY: CGFloat =  896/2 - 75
+    @State var turtlePositionY: CGFloat =  896/2 + 75
     
     var turtleWalking = ["turtle_run1.png", "turtle_run2.png"]
     @State var turtleImage = "turtle_run1.png"
