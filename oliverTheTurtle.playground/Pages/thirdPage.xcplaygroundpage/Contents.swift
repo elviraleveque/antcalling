@@ -141,13 +141,16 @@ struct TurtleRun: View {
                     }
                 VStack {
                     Text("Tap on the garbages and clean the beach!")
-                        .padding(30)
+                        .multilineTextAlignment(.center)
+
+                        .font(.system(size: 20, weight: .regular ))
+                        .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
                     
                     Button("Start", action: {
                         opacityStart = 0
-                    }
-                    )
-                        .padding(.bottom, 30)
+                    })
+                        .padding(EdgeInsets(top: 2, leading: 30, bottom: 30, trailing: 30))
+                        .font(.system(size: 20, weight: .bold ))
                 }
                 .foregroundColor(.black)
                 .frame(width: 395)
@@ -157,9 +160,9 @@ struct TurtleRun: View {
 
                 
             }
-
-            Text("Well done! Go to the next page.")
-                .offset(x:0,y:0)
+            Text("__Well done!__ \n Go to the next page.")
+                .multilineTextAlignment(.center)
+                .font(.system(size: 20, weight: .regular ))
                 .padding(30)
                 .foregroundColor(.black)
                 .frame(width: 395)
