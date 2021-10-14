@@ -9,13 +9,22 @@ struct scene1: View {
     @State var hideButton: Double = 1
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-
+    var speaker = [
+        "",
+        "",
+        "",
+        "",
+        "Kid:",
+        "Kid:",
+        "Kid:",
+        ""
+    ]
     var dialogues = [
         "*A few months later...*",
         "*crack*",
         "*crack*",
         "*crack*",
-        "KID: Hey baby turtle, I saw you are in trouble, do you need help?",
+        "Hey baby turtle, I saw you are in trouble, do you need help?",
         "Ohh you need to reach the sea, but the beach is too dirty to be crossed by a baby turtle like you!",
         "Even if I’m just a kid, I’ll do my best to help you. ",
         "*Start the game in the next page*"

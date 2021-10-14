@@ -166,7 +166,7 @@ struct scene3: View {
     @State var turtleImages = "turtle_mama.png"
     
     @State var d: Int = 0
-    var speacker = [
+    var speaker = [
     "",
     "Turtle Mama",
     ""
@@ -193,7 +193,7 @@ struct scene3: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(speacker[d])
+                    Text(speaker[d])
                         .font(.system(size: 20, weight: .bold))
                         .padding(EdgeInsets(top: 30, leading: 30, bottom: 2, trailing: 30))
                     
